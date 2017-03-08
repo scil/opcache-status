@@ -490,22 +490,6 @@ if (isset($_GET['clear']) && $_GET['clear'] == 1) {
             border: 1px solid #cacaca;
         }
     </style>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.0.1/d3.v3.min.js"></script>
-    <script>
-        var hidden = {};
-        function toggleVisible(head, row) {
-            if (!hidden[row]) {
-                d3.selectAll(row).transition().style('display', 'none');
-                hidden[row] = true;
-                d3.select(head).transition().style('color', '#ccc');
-            } else {
-                d3.selectAll(row).transition().style('display');
-                hidden[row] = false;
-                d3.select(head).transition().style('color', '#000');
-            }
-        }
-    </script>
   </head>
 
   <body>
@@ -577,7 +561,22 @@ if (isset($_GET['clear']) && $_GET['clear'] == 1) {
     <div id="close-partition">&#10006; Close Visualisation</div>
     <div id="partition"></div>
 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.0.1/d3.v3.min.js"></script>
     <script>
+        var hidden = {};
+        function toggleVisible(head, row) {
+            if (!hidden[row]) {
+                d3.selectAll(row).transition().style('display', 'none');
+                hidden[row] = true;
+                d3.select(head).transition().style('color', '#ccc');
+            } else {
+                d3.selectAll(row).transition().style('display');
+                hidden[row] = false;
+                d3.select(head).transition().style('color', '#000');
+            }
+        }
+
         var dataset = <?php echo $dataModel->getGraphDataSetJson(); ?>;
 
         var width = 400,
