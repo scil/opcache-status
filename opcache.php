@@ -6,11 +6,11 @@
  * https://github.com/tonejito/opcache-status
  *
  * @package OpCacheStatus
- * @version 0.1.0
- * @author WP-Cloud <code@wp-cloud.net>
+ * @version 0.1.1
+ * @author Andres Hernandez @tonejito
  * @copyright Copyright (c) 2017, Andres Hernandez @tonejito
  * @copyright Copyright (c) 2016, WP-Cloud
- * @copyright Copyright (c) -2016, Rasmus Lerdorf
+ * @copyright Copyright (c) 2013-2016, Rasmus Lerdorf
  * @license @todo
  */
 
