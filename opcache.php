@@ -3,11 +3,12 @@
  * OPcache Status
  * 
  * A one-page opcache status page for the PHP 5.5 opcode cache.
- * https://github.com/wp-cloud/opcache-status
+ * https://github.com/tonejito/opcache-status
  *
  * @package OpCacheStatus
  * @version 0.1.0
  * @author WP-Cloud <code@wp-cloud.net>
+ * @copyright Copyright (c) 2017, Andres Hernandez @tonejito
  * @copyright Copyright (c) 2016, WP-Cloud
  * @copyright Copyright (c) -2016, Rasmus Lerdorf
  * @license @todo
@@ -779,3 +780,4 @@ if (isset($_GET['clear']) && $_GET['clear'] == 1) {
     </script>
 </body>
 </html>
+
