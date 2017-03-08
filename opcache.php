@@ -26,7 +26,7 @@ class OpCacheDataModel
     private $_status;
     private $_d3Scripts = array();
 
-    public $version = '0.1.0';
+    public $version = '0.1.1';
 
     public function __construct()
     {
@@ -312,9 +312,10 @@ if (isset($_GET['clear']) && $_GET['clear'] == 1) {
 }
 ?>
 <!DOCTYPE html>
-<meta charset="utf-8">
 <html>
-<head>
+  <head>
+    <meta charset="utf-8">
+    <title><?php echo $dataModel->getPageTitle(); ?></title>
     <style>
         body {
             font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -489,8 +490,8 @@ if (isset($_GET['clear']) && $_GET['clear'] == 1) {
             border: 1px solid #cacaca;
         }
     </style>
-    <script src="inc/d3-3.0.1.min.js"></script>
-    <script src="inc/jquery-1.11.0.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.0.1/d3.v3.min.js"></script>
     <script>
         var hidden = {};
         function toggleVisible(head, row) {
@@ -505,10 +506,9 @@ if (isset($_GET['clear']) && $_GET['clear'] == 1) {
             }
         }
     </script>
-    <title><?php echo $dataModel->getPageTitle(); ?></title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="container">
         <span style="float:right;font-size:small;">OPcache Status v<?php echo $dataModel->version; ?></span>
         <h1><?php echo $dataModel->getPageTitle(); ?></h1>
@@ -545,9 +545,9 @@ if (isset($_GET['clear']) && $_GET['clear'] == 1) {
                 <div class="content">
                     <table style="font-size:0.8em;">
                         <tr>
-                            <th width="10%">Hits</th>
-                            <th width="20%">Memory</th>
-                            <th width="70%">Path</th>
+                            <th style="width: 10%">Hits</th>
+                            <th style="width: 20%">Memory</th>
+                            <th style="width: 70%">Path</th>
                         </tr>
                         <?php echo $dataModel->getScriptStatusRows(); ?>
                     </table>
@@ -777,6 +777,6 @@ if (isset($_GET['clear']) && $_GET['clear'] == 1) {
 
         });
     </script>
-</body>
+  </body>
 </html>
 
