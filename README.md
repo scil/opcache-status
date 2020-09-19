@@ -21,6 +21,7 @@ from: https://github.com/LC43/opcache-status
 
 - Fixed warnings when opcache was off
 - Improve clear cache feedback
+- ~~Improve flush cache[https://github.com/LC43/opcache-status/commit/5a9a87d42ab65c054726ada1681eaeb34b44feb6]~~ not mixed into here 
 
 ### TODO
 
