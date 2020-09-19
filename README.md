@@ -13,6 +13,15 @@ files.
 
 [![Screenshot](https://raw.githubusercontent.com/jamesrwhite/opcache-status/improve-readme/screenshot.png)](https://raw.githubusercontent.com/jamesrwhite/opcache-status/improve-readme/screenshot.png)
 
+## Change log
+
+### v0.2.0
+
+from: https://github.com/LC43/opcache-status
+
+- Fixed warnings when opcache was off
+- Improve clear cache feedback
+
 ### TODO
 
  - The ability to sort the list of cached scripts by the various columns

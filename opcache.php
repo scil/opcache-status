@@ -26,12 +26,12 @@ class OpCacheDataModel
     private $_status;
     private $_d3Scripts = array();
 
-    public $version = '0.1.1';
+    public $version = '0.2.0';
 
     public function __construct()
     {
         $this->_configuration = opcache_get_configuration();
-        $this->_status = opcache_get_status();
+        $this->_status = opcache_get_status() ?: [];
     }
 
     public function getPageTitle()
@@ -316,7 +316,19 @@ class OpCacheDataModel
     }
 
     public function clearCache() {
-        opcache_reset();
+        return (int) opcache_reset();
+    }
+    
+    public function clearCacheStatus() {
+
+        if ( ! isset( $_GET['reset_status'] ) ) {
+            return;
+        }
+        if ( $_GET['reset_status'] == 1) {
+            echo '(success)';
+            return;
+        }
+        echo "(failed)";
     }
 
 }
@@ -324,8 +336,8 @@ class OpCacheDataModel
 $dataModel = new OpCacheDataModel();
 
 if (isset($_GET['clear']) && $_GET['clear'] == 1) {
-    $dataModel->clearCache();
-    header('Location: ' . $_SERVER['PHP_SELF']);
+    $reset_status = $dataModel->clearCache();
+    header('Location: ' . $_SERVER['PHP_SELF'] . '?reset_status=' . $reset_status );
 }
 ?>
 <!DOCTYPE html>
@@ -514,8 +526,8 @@ if (isset($_GET['clear']) && $_GET['clear'] == 1) {
         <span style="float:right;font-size:small;">OPcache Status v<?php echo $dataModel->version; ?></span>
         <h1><?php echo $dataModel->getPageTitle(); ?></h1>
 
-        <div class="actions">
-            <a href="?clear=1">Clear cache</a>
+            <div class="actions">
+            <a href="?clear=1">Clear cache</a> <span><?php echo $dataModel->clearCacheStatus(); ?></span>
         </div>
 
         <div class="tabs">
