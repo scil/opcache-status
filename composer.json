@@ -1,9 +1,9 @@
 {
-    "name": "wp-cloud/opcache-status",
+    "name": "scil/opcache-status",
     "type": "application",
     "description": "A one-page opcache status page",
     "keywords": ["opcache","cache","debug","debugging"],
-    "homepage": "https://github.com/wp-cloud/opcache-status",
+    "homepage": "https://github.com/scil/opcache-status",
     "license": "PHP-3.0",
     "authors": [
         {
@@ -14,11 +14,16 @@
             "name": "Christian Foellmann",
             "email": "foellmann@foe-services.de",
             "homepage": "http://christian.foellmann.de/"
+        },
+              {
+            "name": "Pedro Carvalho",
+            "email": "p@goodomens.studio",
+            "homepage": "https://goodomens.studio/"
         }
     ],
     "support": {
-        "issues": "https://github.com/wp-cloud/opcache-status/issues",
-        "source": "https://github.com/wp-cloud/opcache-status"
+        "issues": "https://github.com/scil/opcache-status/issues",
+        "source": "https://github.com/scil/opcache-status"
     },
     "require": {
         "PHP": ">=5.5.0"
