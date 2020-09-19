@@ -15,6 +15,18 @@ files.
 
 ## Change log
 
+### v0.3.0
+
+change `$_SERVER['PHP_SELF']` to `$_SERVER['REQUEST_URI']`. so this script can be used in Laravel route:
+```
+    Route::get('/opcache', function () {
+        // $request = app()->make('request'); if ($request->query('clear')) { opcache_reset(); return back(); }
+
+        require __DIR__ . '/../vendor/scil/opcache-status/opcache.php';
+
+    });
+```
+
 ### v0.2.0
 
 from: https://github.com/LC43/opcache-status

@@ -6,7 +6,6 @@
  * https://github.com/tonejito/opcache-status
  *
  * @package OpCacheStatus
- * @version 0.1.1
  * @author Andres Hernandez @tonejito
  * @copyright Copyright (c) 2017, Andres Hernandez @tonejito
  * @copyright Copyright (c) 2016, WP-Cloud
@@ -26,7 +25,7 @@ class OpCacheDataModel
     private $_status;
     private $_d3Scripts = array();
 
-    public $version = '0.2.0';
+    public $version = '0.3.0';
 
     public function __construct()
     {
@@ -337,7 +336,7 @@ $dataModel = new OpCacheDataModel();
 
 if (isset($_GET['clear']) && $_GET['clear'] == 1) {
     $reset_status = $dataModel->clearCache();
-    header('Location: ' . $_SERVER['PHP_SELF'] . '?reset_status=' . $reset_status );
+    header('Location: ' . $_SERVER['REQUEST_URI'] . '?reset_status=' . $reset_status );
 }
 ?>
 <!DOCTYPE html>
