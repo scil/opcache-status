@@ -42,6 +42,10 @@ class OpCacheDataModel
     public function getStatusDataRows()
     {
         $rows = array();
+        if( ! $this->has_scripts() ) {
+            return "<tr><th>Status</th><td>off</td></tr>\n";
+        }
+
         foreach ($this->_status as $key => $value) {
             if ($key === 'scripts') {
                 continue;
@@ -113,8 +117,11 @@ class OpCacheDataModel
 
     public function getScriptStatusRows()
     {
+        if ( ! $this->has_scripts() ) {
+            return;
+        }
         $dirs = array();
-        foreach ($this->_status['scripts']??[] as $key => $data) {
+        foreach ($this->_status['scripts'] as $key => $data) {
             $dirs[dirname($key)][basename($key)] = $data;
             $this->_arrayPset($this->_d3Scripts, $key, array(
                 'name' => basename($key),
@@ -166,9 +173,19 @@ class OpCacheDataModel
 
     public function getScriptStatusCount()
     {
-        return isset($this->_status["scripts"]) ? count($this->_status["scripts"]): 0;
+        if ( ! $this->has_scripts() ) {
+            return 0;
+        }
+        return count( $this->_status["scripts"] );
     }
-
+    
+    private function has_scripts() {
+        if( ! isset( $this->_status["scripts"] ) || ! is_array( $this->_status["scripts"] ) ) {
+            return false;
+        }
+        return count( $this->_status["scripts"] ) > 0;
+    }
+    
     public function getGraphDataSetJson()
     {
         $dataset = array();
